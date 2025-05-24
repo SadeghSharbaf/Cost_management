@@ -17,6 +17,9 @@ namespace Cost_management
         {
             InitializeComponent();
             _manager = manager;
+            string path = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "expenses.json");
+            _manager.LoadFromFile(path);
             PopulateYearComboBox();
             PopulateTreeView();
         }

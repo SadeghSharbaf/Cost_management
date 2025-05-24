@@ -30,12 +30,13 @@
         {
             comboBoxYears = new ComboBox();
             treeViewReports = new TreeView();
+            label1 = new Label();
             SuspendLayout();
             // 
             // comboBoxYears
             // 
             comboBoxYears.FormattingEnabled = true;
-            comboBoxYears.Location = new Point(28, 12);
+            comboBoxYears.Location = new Point(231, 23);
             comboBoxYears.Name = "comboBoxYears";
             comboBoxYears.Size = new Size(151, 28);
             comboBoxYears.TabIndex = 0;
@@ -43,16 +44,25 @@
             // 
             // treeViewReports
             // 
-            treeViewReports.Location = new Point(28, 69);
+            treeViewReports.Location = new Point(64, 97);
             treeViewReports.Name = "treeViewReports";
-            treeViewReports.Size = new Size(151, 121);
+            treeViewReports.Size = new Size(700, 315);
             treeViewReports.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.Location = new Point(50, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(175, 25);
+            label1.TabIndex = 2;
+            label1.Text = "Please choose your year";
             // 
             // FormReport
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(treeViewReports);
             Controls.Add(comboBoxYears);
             Name = "FormReport";
@@ -64,5 +74,6 @@
 
         private ComboBox comboBoxYears;
         private TreeView treeViewReports;
+        private Label label1;
     }
 }

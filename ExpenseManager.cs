@@ -38,8 +38,27 @@ namespace Cost_management
         {
             try
             {
-                var json = JsonConvert.SerializeObject(_expenses, Formatting.Indented);
+                //loading the past files 
+                List<Expense> existingExpenses = new List<Expense>();
+
+                if (File.Exists(path))
+                {
+                    var existingJson = File.ReadAllText(path);
+                    var loaded = JsonConvert.DeserializeObject<List<Expense>>(existingJson);
+                    if (loaded != null)
+                    {
+                        existingExpenses.AddRange(loaded);
+                    }
+                }
+                //adding new files to this
+                existingExpenses.AddRange(_expenses);
+
+
+                var json = JsonConvert.SerializeObject(existingExpenses, Formatting.Indented);
                 File.WriteAllText(path, json);
+
+                _expenses.Clear();
+                _expenses.AddRange(existingExpenses);
             }
             catch (Exception ex)
             {
